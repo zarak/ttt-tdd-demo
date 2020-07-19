@@ -8,7 +8,7 @@ type Player = Char
 
 data GameState = 
     GameState Board Player 
-    deriving Show
+    deriving (Show, Eq)
 
 initBoard :: Board
 initBoard = replicate 9 ' '
@@ -19,4 +19,5 @@ render board =
     map (\(i, c) -> " " ++ (if c == ' ' then show i else [c]) ++ " ") $
     zip [0..] board
 
+move :: GameState -> Int -> GameState
 move = undefined
